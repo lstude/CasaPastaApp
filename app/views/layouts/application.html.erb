@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CasaPastaApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+<div id ="header">
+	<h1><%= link_to "Casa Pasta Menu", root_url %></h1>
+		
+	<% if @user %>
+		<p>Hello, <%= @user.login %>
+		<%= link_to "Logout", logout_url %> |
+		<%= link_to "Add A New Menu Item", new_food_url %></p>
+	<% else %>
+		<%= link_to "Log In", new_session_url %>
+	<% end %>
+</div>
+	
+<% if flash[:notice] %>
+	<p style="color: white; background: red; padding: 4px">
+	<%= flash[:notice] %>
+	</p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

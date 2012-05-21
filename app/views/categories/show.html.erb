@@ -1,0 +1,21 @@
+<h1><%= @category.name %></h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Food Name</th>
+			<th>Cost</th>
+			</tr>
+		</thead>
+	
+<tbody>
+	
+	<% @food.each do |food| %>
+
+<tr>
+	<td><%= food.name %></td>
+	<td><%= number_to_currency(food.cost) %></td>
+</tr>
+<% end %>
+</tbody>
+</table>

@@ -1,0 +1,23 @@
+<h1>Menu</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Category</th>
+			<th>Food Name</th>
+			<th>Cost</th>
+		</tr>
+	</thead>
+	
+<tbody>
+	<% @food.each do |food| %>
+	<tr>
+		<td><%= link_to food.category.name, category_url(food.category.id) %></td>
+		<td><%= link_to food.name, food_url(food) %></td>
+		<td><%= number_to_currency(food.cost) %>
+		
+	</tr>
+	<% end %>
+</tbody>
+</table>
+	
